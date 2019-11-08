@@ -25,7 +25,7 @@ class _HomeState extends State<Home> {
 
     setState(() {
       var object = json.decode(response.body);
-      totalCount = "TOTAL: " + object["total"].toString();
+      totalCount = object["total"] > 0 ? "TOTAL: " + object["total"].toString() : "Nenhum filme encontrado!";
       _listMovies = object["moviesByYear"];
     });
   }
@@ -72,8 +72,8 @@ class _HomeState extends State<Home> {
               itemCount: _listMovies == null ? 0 : _listMovies.length,
               itemBuilder: (BuildContext context, i){
                 return new ListTile(
-                  title: new Text("Year: " + _listMovies[i]["year"]),
-                  subtitle: new Text("Movies: " + _listMovies[i]["movies"].toString()),
+                  title: new Text("Ano: " + _listMovies[i]["year"]),
+                  subtitle: new Text("Número de filmes: " + _listMovies[i]["movies"].toString()),
                 );
               }
             ),
