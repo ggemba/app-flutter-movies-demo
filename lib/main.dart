@@ -78,10 +78,18 @@ class _HomeState extends State<Home> {
               }
             ),
           ),
-          Text(totalCount,
-            textAlign: TextAlign.right,
-            style: TextStyle(color: Colors.deepOrangeAccent, fontSize: 15.0),
-          )
+          Container(
+            color: Colors.deepOrangeAccent,
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                  Text(totalCount,
+                       style: TextStyle(color: Colors.white, fontSize: 15.0),
+                )
+              ],
+            ),
+          ),
         ],
       )
     );
